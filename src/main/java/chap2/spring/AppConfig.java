@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Configuration에 의해 @ComponentScan의 대상이 된다.
+ * @Configuration 애노테이션은 CGLIB를 통해 설정정보 클래스의 바이트코드를 조작하여 싱글톤을 보장하도록 한다.
  * AppConfig 클래스에 선언한 @Bean은 스프링 컨테이너에 의해 싱글톤으로 관리된다.
  * @see chap2.improved.AppConfig
  */
@@ -22,9 +22,9 @@ public class AppConfig {
     }
 
     @Bean
-    public MessageRenderer messageRenderer(MessageProvider messageProvider) {
+    public MessageRenderer messageRenderer() {
         System.out.println("AppConfig.messageRenderer");
-        return new StandardOutMessageRenderer(messageProvider);
+        return new StandardOutMessageRenderer(messageProvider());
     }
 
 }

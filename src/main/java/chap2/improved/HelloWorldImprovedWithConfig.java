@@ -7,9 +7,8 @@ package chap2.improved;
 public class HelloWorldImprovedWithConfig {
 
     public static void main(String[] args) {
-        AppConfig appConfig = AppConfig.getInstance();
-        MessageProvider mp = appConfig.messageProvider();
-        MessageRenderer mv = appConfig.messageRenderer(mp);
+        AppConfig appConfig = new AppConfig();
+        MessageRenderer mv = appConfig.messageRenderer();
         mv.render();
     }
 }
